@@ -1,0 +1,23 @@
+Mud Crawler
+Copyright (c) 2026 Sterile Development. All rights reserved.
+Contact: steriledevelopment@gmail.com
+
+This software, including its source code, design, name, logo and documentation, is the
+property of Sterile Development and is protected by copyright law.
+
+The source code is published so that it can be read. No licence is granted to copy, modify,
+distribute, sell, sublicense, republish, reverse engineer or create derivative works from this
+software, in whole or in part, without the prior written permission of the copyright holder.
+You may use the official builds that the copyright holder distributes (for example through the
+Microsoft Store) for your own personal use.
+
+THIRD-PARTY COMPONENTS
+Mud Crawler is written in C++ and statically links zlib (https://zlib.net) for MCCP
+decompression. zlib is distributed under its own licence, which is not affected by this notice.
+
+NO WARRANTY
+This software is provided "as is", without warranty of any kind, express or implied. In no
+event shall the copyright holder be liable for any claim, damages or other liability arising
+from the use of this software.
+
+For permission requests, contact steriledevelopment@gmail.com.
