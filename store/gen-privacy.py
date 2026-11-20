@@ -8,7 +8,7 @@ PUBLISHER = "Sterile Development"
 EMAIL = "steriledevelopment@gmail.com"
 SECTIONS = [
  ("Summary",
-  "Mud Crawler does not collect, track or sell your personal information. It has no accounts, no ads and no analytics, and it sends nothing to its developer."),
+  "The Mud Crawler does not collect, track or sell your personal information. It has no accounts, no ads and no analytics, and it sends nothing to its developer."),
  ("What the app connects to",
   "The app connects only to the MUD servers that you add yourself. What you type and the commands you send go to that server, and its replies come back. Those servers are run by other people and have their own privacy policies. "
   "Connections are currently NOT encrypted (plain telnet; encryption is planned), so others on the network could see what you send, including a password. Do not reuse an important password on a MUD."),
@@ -20,7 +20,7 @@ SECTIONS = [
  ("Your control",
   "You can delete a profile, and its saved password, in the Profiles panel. To remove everything the app has stored, delete its data folder (Settings > About > Open data folder) or uninstall the app."),
  ("Children",
-  "Mud Crawler is not directed at children. MUD servers can show text written by other players, which the app cannot filter."),
+  "The Mud Crawler is not directed at children. MUD servers can show text written by other players, which the app cannot filter."),
  ("Changes to this policy",
   "If this policy changes, the new version will ship with an updated copy of the app and its Store listing. Effective date: " + EFFECTIVE + "."),
  ("Contact",
@@ -34,7 +34,7 @@ with open("src/privacy.h", "w") as f:
     for h, b in SECTIONS: f.write('    {L"%s", L"%s"},\n' % (cpp(h), cpp(b)))
     f.write("};\n")
 with open("store/PRIVACY.md", "w") as f:
-    f.write("# Privacy Policy - Mud Crawler\n\n")
+    f.write("# Privacy Policy - The Mud Crawler\n\n")
     for h, b in SECTIONS: f.write("## %s\n%s\n\n" % (h, b))
 CSS = """body{margin:0;background:#15110c;color:#e8dec8;font:17px/1.6 "Segoe UI",system-ui,sans-serif}
 main{max-width:760px;margin:0 auto;padding:40px 20px 60px}h1{font-size:30px;margin:0 0 6px}h2{color:#d9ad45;font-size:19px;margin:30px 0 4px}
@@ -42,14 +42,14 @@ p{margin:0;color:#cfc5ad}.sub{color:#968c78;margin-bottom:10px}a{color:#d9ad45}f
 os.makedirs("docs", exist_ok=True)
 def page(title, body):
     return "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>%s</title><style>%s</style></head><body><main>%s</main></body></html>\n" % (html.escape(title), CSS, body)
-priv = "<h1>Privacy Policy</h1><div class=\"sub\">Mud Crawler &middot; effective %s</div>" % html.escape(EFFECTIVE)
+priv = "<h1>Privacy Policy</h1><div class=\"sub\">The Mud Crawler &middot; effective %s</div>" % html.escape(EFFECTIVE)
 for h, b in SECTIONS:
     priv += "<h2>%s</h2><p>%s</p>" % (html.escape(h), html.escape(b))
-priv += "<footer>&copy; 2026 %s &middot; <a href=\"./\">Back to Mud Crawler</a></footer>" % html.escape(PUBLISHER)
-open("docs/privacy.html", "w").write(page("Privacy Policy - Mud Crawler", priv))
-idx = ("<h1>Mud Crawler</h1><div class=\"sub\">A native Windows MUD client</div>"
+priv += "<footer>&copy; 2026 %s &middot; <a href=\"./\">Back to The Mud Crawler</a></footer>" % html.escape(PUBLISHER)
+open("docs/privacy.html", "w").write(page("Privacy Policy - The Mud Crawler", priv))
+idx = ("<h1>The Mud Crawler</h1><div class=\"sub\">A native Windows MUD client</div>"
        "<h2>About</h2><p>Telnet with GMCP, MSDP and MCCP, ANSI colour, triggers, aliases, timers, variables and an auto-mapper with room notes.</p>"
        "<h2>Links</h2><p><a href=\"privacy.html\">Privacy policy</a> &middot; <a href=\"https://github.com/steriledevelopment/MudCrawler\">Source code</a> &middot; <a href=\"mailto:%s\">%s</a></p>"
        "<footer>&copy; 2026 %s</footer>") % (EMAIL, EMAIL, html.escape(PUBLISHER))
-open("docs/index.html", "w").write(page("Mud Crawler", idx))
+open("docs/index.html", "w").write(page("The Mud Crawler", idx))
 print("wrote src/privacy.h, store/PRIVACY.md, docs/privacy.html and docs/index.html")

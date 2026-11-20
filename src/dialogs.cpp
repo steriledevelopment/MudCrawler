@@ -45,7 +45,7 @@ bool showTextPrompt(HWND owner, const std::string& title, const std::string& lab
 
 void showAbout(HWND owner) {
     MessageBoxW(owner,
-        L"Mud Crawler\nVersion 2.0.0-dev.1\n\nA native Windows MUD client written in C++.\n"
+        L"The Mud Crawler\nVersion 1.0.0\n\nA native Windows MUD client written in C++.\n"
         L"Telnet with GMCP, MSDP, MCCP2, NAWS and MTTS, ANSI 16/256/truecolor,\n"
         L"triggers, aliases, timers, variables and an auto-mapper.\n\nType #help in the input line for commands.",
         L"About", MB_OK | MB_ICONINFORMATION);

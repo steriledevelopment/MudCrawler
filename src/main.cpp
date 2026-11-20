@@ -1,4 +1,4 @@
-// Mud Crawler - main window.
+// The Mud Crawler - main window.
 #include "ui.h"
 #include "privacy.h"
 #include <deque>
@@ -462,7 +462,7 @@ void layout() {
 
 void updateStatus() { InvalidateRect(A.wnd, &A.rBar, FALSE); }
 void updateTabs() {
-    std::wstring title = L"Mud Crawler";
+    std::wstring title = L"The Mud Crawler";
     if (View* v = activeView()) title = W(v->s->profile.name) + L" - " + title;
     SetWindowTextW(A.wnd, title.c_str());
     InvalidateRect(A.wnd, nullptr, FALSE);
@@ -654,7 +654,7 @@ View* openSession(const Profile& p, bool connectNow = true) {
     A.views.push_back(std::move(v));
     selectTab(idx);
     View* nv = A.views[idx].get();
-    nv->s->say("Mud Crawler - type #help for commands.", 8);
+    nv->s->say("The Mud Crawler - type #help for commands.", 8);
     A.settings.lastProfile = p.id; saveSettings(A.settings);
     if (connectNow) nv->s->connect();
     return nv;
@@ -1401,7 +1401,7 @@ void drawPanelIcon(HDC dc, RECT b, int kind, bool hv, bool flag) {
 int gSettingsSec = 0;       // selected section in the Settings window: Themes, Text, Panels, Behaviour, Advanced, About
 #define MC_WIDEN2(x) L##x
 #define MC_WIDEN(x) MC_WIDEN2(x)
-const wchar_t* kVersion = L"2.0.0-dev.1  (build " MC_WIDEN(__DATE__) L" " MC_WIDEN(__TIME__) L")";
+const wchar_t* kVersion = L"1.0.0  (build " MC_WIDEN(__DATE__) L" " MC_WIDEN(__TIME__) L")";
 const wchar_t* kContactEmail = L"steriledevelopment@gmail.com";
 // The "Donate with PayPal" button image is embedded in the exe as resource 101 (PNG).
 Gdiplus::Image* payPalImage() {
@@ -1543,7 +1543,7 @@ void paintPanel(HWND hw, Panel& p) {
             break;
         case 5:
             section(L"ABOUT");
-            paraRow(L"Mud Crawler", t.text, gHead, 2);
+            paraRow(L"The Mud Crawler", t.text, gHead, 2);
             paraRow(std::wstring(L"Version ") + kVersion, t.muted, gBody, 12);
             paraRow(L"A native Windows MUD client written in C++. Telnet with GMCP, MSDP, MCCP2, NAWS and MTTS; ANSI 16 / 256 / truecolor; triggers, aliases, timers and variables; and an auto-mapper with room notes.", t.text, gBody, 12);
             paraRow(L"Your data lives in:", t.muted, gBody, 2);
@@ -1553,7 +1553,7 @@ void paintPanel(HWND hw, Panel& p) {
             paraRow(L"Copyright \u00A9 2026 Sterile Development. All rights reserved.", t.text, gBody, 8);
             buttonRow(L"Email", kContactEmail, L"Write to us", ID_OPEN_MAIL);
             section(L"SUPPORT MUD CRAWLER");
-            paraRow(L"If you enjoy Mud Crawler, you can help keep it going with a donation through PayPal. Thank you!", t.text, gBody, 8);
+            paraRow(L"If you enjoy The Mud Crawler, you can help keep it going with a donation through PayPal. Thank you!", t.text, gBody, 8);
             if (Gdiplus::Image* pp = payPalImage()) imageButtonRow(pp, px(200), ID_OPEN_DONATE);
             else buttonRow(L"", L"", L"Donate with PayPal", ID_OPEN_DONATE);       // fallback if the image could not be loaded
             break;
@@ -2474,7 +2474,7 @@ void doCommand(int id) {
     case ID_VIEW_SIDEBAR: setSidebarCollapsed(!A.settings.sidebarCollapsed); break;
     case ID_OPEN_SETTINGS: openPanel(PN_SETTINGS); break;
     case ID_COPY_PRIVACY: {
-        std::wstring all = L"Privacy Policy - Mud Crawler\n\n";
+        std::wstring all = L"Privacy Policy - The Mud Crawler\n\n";
         for (auto& ps : kPrivacy) { all += ps.heading; all += L"\n"; all += ps.body; all += L"\n\n"; }
         copyText(A.wnd, U(all)); showToast(L"Privacy policy copied to the clipboard.");
         break;
@@ -2680,7 +2680,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE, LPSTR, int show) {
     A.hooks.clear = [](Session* s) { View* v = viewFor(s); if (v) { v->pending.clear(); v->outLines.clear(); v->chatLines.clear(); rebuildView(*v); } };
 
     int cw = 1280, ch = 820;
-    HWND hw = CreateWindowExW(0, L"McMain", L"Mud Crawler", WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT, CW_USEDEFAULT, cw, ch, nullptr, nullptr, inst, nullptr);
+    HWND hw = CreateWindowExW(0, L"McMain", L"The Mud Crawler", WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN, CW_USEDEFAULT, CW_USEDEFAULT, cw, ch, nullptr, nullptr, inst, nullptr);
     ACCEL ac[] = {
         {FCONTROL | FVIRTKEY, 'O', ID_FILE_CONNECT}, {FCONTROL | FVIRTKEY, 'P', ID_FILE_PROFILES}, {FCONTROL | FVIRTKEY, 'W', ID_FILE_CLOSETAB},
         {FCONTROL | FVIRTKEY, 'B', ID_VIEW_SIDEBAR}, {FCONTROL | FVIRTKEY, 'N', ID_FILE_NEWWIN}, {FCONTROL | FVIRTKEY, 'L', ID_EDIT_CLEAR},

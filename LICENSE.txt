@@ -1,4 +1,4 @@
-Mud Crawler
+The Mud Crawler
 Copyright (c) 2026 Sterile Development. All rights reserved.
 Contact: steriledevelopment@gmail.com
 
@@ -12,7 +12,7 @@ You may use the official builds that the copyright holder distributes (for examp
 Microsoft Store) for your own personal use.
 
 THIRD-PARTY COMPONENTS
-Mud Crawler is written in C++ and statically links zlib (https://zlib.net) for MCCP
+The Mud Crawler is written in C++ and statically links zlib (https://zlib.net) for MCCP
 decompression. zlib is distributed under its own licence, which is not affected by this notice.
 
 NO WARRANTY

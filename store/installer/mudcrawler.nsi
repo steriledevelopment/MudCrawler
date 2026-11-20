@@ -1,9 +1,9 @@
-; Mud Crawler - traditional Windows installer (NSIS).
+; The Mud Crawler - traditional Windows installer (NSIS).
 ; Installs to Program Files (UAC prompt), optional Start Menu and Desktop shortcuts, uninstaller + Add/Remove Programs entry.
 ; Build on Linux:  bash store/installer/build.sh      (needs the `nsis` package and a built dist/MudCrawler.exe)
-; Silent install:  MudCrawler-Setup-2.0.0.exe /S          (Start Menu shortcut only, default folder)
-;                  MudCrawler-Setup-2.0.0.exe /S /DESKTOP=1 /D=C:\Apps\MudCrawler   (also a desktop icon, custom folder; /D must be last)
-; Silent uninstall: "C:\Program Files\Mud Crawler\Uninstall.exe" /S
+; Silent install:  MudCrawler-Setup-1.0.0.exe /S          (Start Menu shortcut only, default folder)
+;                  MudCrawler-Setup-1.0.0.exe /S /DESKTOP=1 /D=C:\Apps\MudCrawler   (also a desktop icon, custom folder; /D must be last)
+; Silent uninstall: "C:\Program Files\The Mud Crawler\Uninstall.exe" /S
 
 Unicode true
 !include "MUI2.nsh"
@@ -11,13 +11,13 @@ Unicode true
 !include "LogicLib.nsh"
 !include "FileFunc.nsh"
 
-!define APPNAME   "Mud Crawler"
+!define APPNAME   "The Mud Crawler"
 !define COMPANY   "Sterile Development"
-!define VERSION   "2.0.0"
-!define VERSION4  "2.0.0.0"
+!define VERSION   "1.0.0"
+!define VERSION4  "1.0.0.0"
 !define EXENAME   "MudCrawler.exe"
 !define UNINSTKEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\MudCrawler"
-!define APPKEY    "Software\Sterile Development\Mud Crawler"
+!define APPKEY    "Software\Sterile Development\The Mud Crawler"
 !define WEBSITE   "https://steriledevelopment.github.io/MudCrawler/"
 
 Name "${APPNAME}"

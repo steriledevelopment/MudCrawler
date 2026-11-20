@@ -1,4 +1,4 @@
-# Putting Mud Crawler on the Microsoft Store
+# Putting The Mud Crawler on the Microsoft Store
 
 Why the Store: when Microsoft publishes the app, **Microsoft signs the package for you**. Store installs don't trigger
 SmartScreen or Smart App Control. You never buy or manage a certificate.
@@ -9,7 +9,7 @@ This is a brand-new Store product. Nothing from the v1 listing is reused.
 1. Sign in at https://partner.microsoft.com/dashboard (your existing developer account works; there is only a one-time
    registration fee if you don't have one).
 2. **Apps and games > New product > MSIX or PWA app**. Reserve a name.
-   - The product name reserved for this app is **Mud Crawler**. The manifest's display name must match it exactly.
+   - The product name reserved for this app is **The Mud Crawler**. The manifest's display name must match it exactly.
 3. Open the new product: **Product management > Product identity**. Copy three values:
    - Package/Identity/Name
    - Package/Identity/Publisher  (looks like `CN=0123ABCD-...`)
@@ -52,6 +52,6 @@ Certification usually takes a few business days. If it fails, the report says wh
 - **TLS.** Not implemented yet (plain telnet). Fine to submit, but say so in the description if you list features.
 - **Data folder in a Store install.** Packaged apps get a private copy of AppData, so *Open data folder* in
   About may show a different location than where the files really are. Easy to adjust later.
-- **Updates.** Each update needs a higher version. The manifest is `2.0.0.0`; the Store reserves the last number, so
+- **Updates.** Each update needs a higher version. The manifest is `1.0.0.0`; the Store reserves the last number, so
   bump the third (`2.0.1.0`, `2.1.0.0`, ...).
 - The unsigned test builds I send you (`.bin`) are separate and keep triggering SmartScreen; that is expected.

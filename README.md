@@ -1,4 +1,4 @@
-# Mud Crawler
+# The Mud Crawler
 
 A native Windows MUD client written in C++17 (Win32 API). One small static `.exe`: no runtime needed. An optional installer is included.
 
@@ -16,7 +16,7 @@ Needs a Linux box with `g++-mingw-w64-x86-64-posix` and `libz-mingw-w64-dev` (an
 
     make test     # native unit tests (telnet, ansi, rules, mapper, json, store)
     make win      # dist/MudCrawler.exe
-    make installer # dist/MudCrawler-Setup-2.0.0.exe (needs the `nsis` package; see store/installer/README.md)
+    make installer # dist/MudCrawler-Setup-1.0.0.exe (needs the `nsis` package; see store/installer/README.md)
     python3 tests/fake_mud.py 4999 [--noeor]   # local test MUD (GMCP + MCCP + password + 5 rooms)
 
 User data lives in `%APPDATA%\MudCrawler`.

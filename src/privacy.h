@@ -3,12 +3,12 @@
 
 struct PolicySection { const wchar_t* heading; const wchar_t* body; };
 static const PolicySection kPrivacy[] = {
-    {L"Summary", L"Mud Crawler does not collect, track or sell your personal information. It has no accounts, no ads and no analytics, and it sends nothing to its developer."},
+    {L"Summary", L"The Mud Crawler does not collect, track or sell your personal information. It has no accounts, no ads and no analytics, and it sends nothing to its developer."},
     {L"What the app connects to", L"The app connects only to the MUD servers that you add yourself. What you type and the commands you send go to that server, and its replies come back. Those servers are run by other people and have their own privacy policies. Connections are currently NOT encrypted (plain telnet; encryption is planned), so others on the network could see what you send, including a password. Do not reuse an important password on a MUD."},
     {L"What is stored on your computer", L"Your profiles (name, host, port, username), saved passwords (encrypted with Windows data protection and tied to your Windows account), your settings, your triggers, aliases, timers and variables, and your map data (room names, notes and room descriptions copied from the game). Session logs are saved only if you turn logging on. All of this stays in the app's data folder on your computer and is never uploaded."},
     {L"Links that leave the app", L"The Donate button opens PayPal in your web browser; PayPal's own policy applies and the app never sees or stores payment details. The email button opens your mail program addressed to steriledevelopment@gmail.com; nothing is sent unless you send it."},
     {L"Your control", L"You can delete a profile, and its saved password, in the Profiles panel. To remove everything the app has stored, delete its data folder (Settings > About > Open data folder) or uninstall the app."},
-    {L"Children", L"Mud Crawler is not directed at children. MUD servers can show text written by other players, which the app cannot filter."},
+    {L"Children", L"The Mud Crawler is not directed at children. MUD servers can show text written by other players, which the app cannot filter."},
     {L"Changes to this policy", L"If this policy changes, the new version will ship with an updated copy of the app and its Store listing. Effective date: 20 November 2026."},
     {L"Contact", L"Sterile Development - steriledevelopment@gmail.com"},
 };
