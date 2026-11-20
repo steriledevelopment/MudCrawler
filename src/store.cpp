@@ -31,12 +31,15 @@ std::string dataDir() {
 #ifdef _WIN32
         char buf[MAX_PATH] = {0};
         if (SHGetFolderPathA(nullptr, CSIDL_APPDATA, nullptr, 0, buf) != S_OK) strcpy(buf, ".");
-        d = std::string(buf) + "\\MudCrawler";
-        std::string old = std::string(buf) + "\\MudCrawler2";      // early test builds used this folder: carry the data over once
-        if (GetFileAttributesA(d.c_str()) == INVALID_FILE_ATTRIBUTES && GetFileAttributesA(old.c_str()) != INVALID_FILE_ATTRIBUTES) MoveFileA(old.c_str(), d.c_str());
+        d = std::string(buf) + "\\TheMudCrawler";
+        if (GetFileAttributesA(d.c_str()) == INVALID_FILE_ATTRIBUTES)       // earlier test builds used other folder names: carry the data over once
+            for (const char* o : {"\\MudCrawler", "\\MudCrawler2"}) {
+                std::string old = std::string(buf) + o;
+                if (GetFileAttributesA(old.c_str()) != INVALID_FILE_ATTRIBUTES && MoveFileA(old.c_str(), d.c_str())) break;
+            }
 #else
         const char* t = getenv("MC_DATA"); const char* h = getenv("HOME");
-        d = t ? t : std::string(h ? h : ".") + "/.mudcrawler";
+        d = t ? t : std::string(h ? h : ".") + "/.themudcrawler";
 #endif
         mkdirs(d);
     }

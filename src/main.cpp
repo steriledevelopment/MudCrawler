@@ -1552,7 +1552,7 @@ void paintPanel(HWND hw, Panel& p) {
             section(L"COPYRIGHT & CONTACT");
             paraRow(L"Copyright \u00A9 2026 Sterile Development. All rights reserved.", t.text, gBody, 8);
             buttonRow(L"Email", kContactEmail, L"Write to us", ID_OPEN_MAIL);
-            section(L"SUPPORT MUD CRAWLER");
+            section(L"SUPPORT THE MUD CRAWLER");
             paraRow(L"If you enjoy The Mud Crawler, you can help keep it going with a donation through PayPal. Thank you!", t.text, gBody, 8);
             if (Gdiplus::Image* pp = payPalImage()) imageButtonRow(pp, px(200), ID_OPEN_DONATE);
             else buttonRow(L"", L"", L"Donate with PayPal", ID_OPEN_DONATE);       // fallback if the image could not be loaded

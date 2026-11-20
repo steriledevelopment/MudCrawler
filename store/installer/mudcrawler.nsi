@@ -3,7 +3,7 @@
 ; Build on Linux:  bash store/installer/build.sh      (needs the `nsis` package and a built dist/MudCrawler.exe)
 ; Silent install:  MudCrawler-Setup-1.0.0.exe /S          (Start Menu shortcut only, default folder)
 ;                  MudCrawler-Setup-1.0.0.exe /S /DESKTOP=1 /D=C:\Apps\MudCrawler   (also a desktop icon, custom folder; /D must be last)
-; Silent uninstall: "C:\Program Files\The Mud Crawler\Uninstall.exe" /S
+; Silent uninstall: "C:\Program Files\Sterile\TheMudCrawler\Uninstall.exe" /S
 
 Unicode true
 !include "MUI2.nsh"
@@ -22,7 +22,7 @@ Unicode true
 
 Name "${APPNAME}"
 OutFile "..\..\dist\MudCrawler-Setup-${VERSION}.exe"
-InstallDir "$PROGRAMFILES64\${APPNAME}"
+InstallDir "$PROGRAMFILES64\Sterile\TheMudCrawler"
 RequestExecutionLevel admin                  ; asks for UAC approval
 BrandingText "${COMPANY}"
 SetCompressor /SOLID lzma
@@ -121,7 +121,7 @@ Function .onInit
   ${EndIf}
   SetRegView 64
   ; upgrade in place: reuse the folder of an earlier install (unless /D= was given)
-  ${If} $INSTDIR == "$PROGRAMFILES64\${APPNAME}"
+  ${If} $INSTDIR == "$PROGRAMFILES64\Sterile\TheMudCrawler"
     ReadRegStr $0 HKLM "${APPKEY}" "InstallDir"
     ${If} $0 != ""
       StrCpy $INSTDIR $0
@@ -152,6 +152,7 @@ Section "Uninstall"
   Delete "$INSTDIR\LICENSE.txt"
   Delete /REBOOTOK "$INSTDIR\Uninstall.exe"
   RMDir /REBOOTOK "$INSTDIR"
+  RMDir "$PROGRAMFILES64\Sterile"      ; only removed when empty
   DeleteRegKey HKLM "${UNINSTKEY}"
   DeleteRegKey HKLM "${APPKEY}"
   DeleteRegKey /ifempty HKLM "Software\Sterile Development"
@@ -159,8 +160,8 @@ Section "Uninstall"
   ; the user's own data (profiles, saved logins, rules, maps, logs) is only removed if they say so
   SetShellVarContext current
   ${IfNot} ${Silent}
-    MessageBox MB_YESNO|MB_ICONQUESTION|MB_DEFBUTTON2 "Also delete your ${APPNAME} profiles, saved logins, triggers, maps and logs?$\r$\n$\r$\n$APPDATA\MudCrawler$\r$\n$\r$\nChoose No to keep them (for example, if you plan to reinstall)." IDNO keepdata
-    RMDir /r "$APPDATA\MudCrawler"
+    MessageBox MB_YESNO|MB_ICONQUESTION|MB_DEFBUTTON2 "Also delete your ${APPNAME} profiles, saved logins, triggers, maps and logs?$\r$\n$\r$\n$APPDATA\TheMudCrawler$\r$\n$\r$\nChoose No to keep them (for example, if you plan to reinstall)." IDNO keepdata
+    RMDir /r "$APPDATA\TheMudCrawler"
     keepdata:
   ${EndIf}
 SectionEnd

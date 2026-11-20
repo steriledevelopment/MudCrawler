@@ -19,7 +19,7 @@ Needs a Linux box with `g++-mingw-w64-x86-64-posix` and `libz-mingw-w64-dev` (an
     make installer # dist/MudCrawler-Setup-1.0.0.exe (needs the `nsis` package; see store/installer/README.md)
     python3 tests/fake_mud.py 4999 [--noeor]   # local test MUD (GMCP + MCCP + password + 5 rooms)
 
-User data lives in `%APPDATA%\MudCrawler`.
+User data lives in `%APPDATA%\TheMudCrawler`.
 
 ## Microsoft Store
 `store/` holds the manifest template, logos, scripts and the step-by-step guide (`store/STORE.md`).

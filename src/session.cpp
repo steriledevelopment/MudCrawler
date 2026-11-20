@@ -185,7 +185,7 @@ void Session::handleNeg(uint8_t cmd, uint8_t opt) {
         } else if (opt == OPT_GMCP || opt == OPT_MCCP2 || opt == OPT_EOR || opt == OPT_SGA || opt == OPT_MSDP) {
             remote_[opt] = true; rawSend(buildNegotiation(DO, opt));
             if (opt == OPT_GMCP) {
-                rawSend(buildGmcp("Core.Hello", "{\"client\":\"MudCrawler\",\"version\":\"2.0\"}"));
+                rawSend(buildGmcp("Core.Hello", "{\"client\":\"MudCrawler\",\"version\":\"1.0\"}"));
                 rawSend(buildGmcp("Core.Supports.Set", "[\"Char 1\",\"Char.Vitals 1\",\"Char.Status 1\",\"Room 1\",\"Room.Info 1\",\"Comm 1\",\"Comm.Channel 1\"]"));
             } else if (opt == OPT_MSDP) {
                 for (const char* k : {"HEALTH", "HEALTH_MAX", "MANA", "MANA_MAX", "MOVEMENT", "MOVEMENT_MAX"}) {
